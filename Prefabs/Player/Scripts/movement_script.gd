@@ -8,7 +8,12 @@ var camera : Marker3D
 func _ready() -> void:
 	MainManager.MovementLocked = false
 	camera = $Pivot
-	MainManager.Player = self
+	
+	if(MainManager.playerPos != null and !MainManager.firstload):
+		global_position = MainManager.playerPos
+	else:
+		MainManager.firstload = false
+	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -32,9 +37,12 @@ func _physics_process(delta: float) -> void:
 	if (!MainManager.MovementLocked):
 		if direction != Vector3() and !animator.is_playing():
 			animator.play("head_bob")
+			MainManager.playerPos = global_position 
 			call_deferred("play_audio")
 		move_and_slide()
 	
+
+		
 	
 func play_audio():
 	var randomInt = MainManager.rng.randi_range(1,3)

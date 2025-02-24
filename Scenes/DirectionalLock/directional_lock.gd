@@ -4,7 +4,6 @@ extends Node2D
 var UserInput: Array[int]
 var isMouse
 var mouse_left_down = false
-var mouse_right_down = false
 var puzzleStarted = false
 
 
@@ -15,7 +14,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if((mouse_left_down or mouse_right_down) and puzzleStarted):
+	if((mouse_left_down) and puzzleStarted):
 		turnLock(delta)
 	elif(puzzleStarted):
 		checkPos()
@@ -27,11 +26,7 @@ func turnLock(delta) ->void:
 	play_audio()
 	var rotation_speed = 1 * delta  # Adjust speed factor
 	var target_rotation = Lock.rotation_degrees
-
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		target_rotation -= 90
-	else:
-		target_rotation += 90
+	target_rotation += 90
 
 	# Smooth transition using lerp
 	Lock.rotation_degrees = lerp(Lock.rotation_degrees, target_rotation, rotation_speed)
@@ -76,12 +71,6 @@ func _input(event):
 			puzzleStarted = true
 		elif event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			mouse_left_down = false
-		if event.button_index == MOUSE_BUTTON_RIGHT and isMouse and event.pressed:
-			mouse_right_down = true
-			puzzleStarted = true
-			
-		elif event.button_index == MOUSE_BUTTON_RIGHT and not event.pressed:
-			mouse_right_down = false
 		
 
 func _on_area_2d_mouse_exited() -> void:

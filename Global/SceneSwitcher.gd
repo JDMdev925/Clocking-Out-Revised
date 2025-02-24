@@ -17,7 +17,7 @@ const SCENES = {
 	SceneType.MAIN_MENU: preload("res://Scenes/MainMenu/MainMenu.tscn"),
 	SceneType.CREDIT_MENU: preload("res://Scenes/MainMenu/CreditsMenu.tscn"),
 	SceneType.OPTIONS_MENU: preload("res://Scenes/MainMenu/OptionsMenu.tscn"),
-	SceneType.STORE: preload("res://Scenes/ConvenienceStore/convenience_store.tscn"),
+	SceneType.STORE: preload("res://Scenes/Environement/Environment.tscn"),
 	SceneType.PUZZLE_TILL: preload("res://Scenes/TillPuzzle/TillPuzzle.tscn"),
 	SceneType.PUZZLE_LIGHTS: preload("res://Scenes/LightPuzzle/Light Puzzle.tscn"),
 	SceneType.PUZZLE_BOX: preload("res://Scenes/SlidingPuzzle/sliding_puzzle.tscn"),
@@ -54,7 +54,8 @@ func _deferred_switch_scene(new_scene):
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		signalEmitter()
-	AudioManager.resetSound()
+	if(current_scene_type == SceneType.MAIN_MENU || current_scene_type == SceneType.CREDIT_MENU || get_scene_enum_from_path(current_scene.scene_file_path) == SceneType.MAIN_MENU):
+		AudioManager.resetSound()
 	current_scene = new_scene
 	
 	
@@ -70,6 +71,8 @@ func _input(event):
 func signalEmitter():
 	if(MainManager.TillComplete):
 		MainManager.emit_signal("till_complete")
+	if(MainManager.ShelvesStacked):
+		MainManager.emit_signal("shelves_stacked")
 	if(MainManager.LightsComplete):
 		MainManager.emit_signal("lights_off")
 	if(MainManager.BadLights):

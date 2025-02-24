@@ -1582,10 +1582,6 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.0499933, 0.000135055, -0.000804639, -9.17257e-05, 0.049928, 0.00268115, 0.000810722, -0.00267931, 0.0499215, 2.73467, 0.796204, 15.6225)
 skeleton = NodePath("../..")
 
-[node name="CerealBox88" parent="." instance=ExtResource("6_6emtq")]
-transform = Transform3D(0.0499933, 0.000135055, -0.000804639, -9.17257e-05, 0.049928, 0.00268115, 0.000810722, -0.00267931, 0.0499215, 2.30797, 0.796204, 15.6225)
-skeleton = NodePath("../..")
-
 [node name="CerealBox89" parent="." instance=ExtResource("6_6emtq")]
 transform = Transform3D(0.0499933, 0.000135055, -0.000804639, -9.17257e-05, 0.049928, 0.00268115, 0.000810722, -0.00267931, 0.0499215, 3.54492, 0.754374, 15.8193)
 skeleton = NodePath("../..")
@@ -2798,30 +2794,6 @@ skeleton = NodePath("../..")
 
 [node name="CleaningSprayJ21" parent="." instance=ExtResource("17_uj6jq")]
 transform = Transform3D(-0.00171541, -0.00159738, 0.112478, 0.00337158, 0.11244, 0.00164825, -0.112439, 0.00339598, -0.00166659, -1.78556, 2.01852, 11.4127)
-skeleton = NodePath("../..")
-
-[node name="CleaningSprayJ22" parent="." instance=ExtResource("17_uj6jq")]
-transform = Transform3D(-0.00171541, -0.00159738, 0.112478, 0.00337158, 0.11244, 0.00164825, -0.112439, 0.00339598, -0.00166659, -1.54133, 2.01342, 11.1675)
-skeleton = NodePath("../..")
-
-[node name="CleaningSprayJ23" parent="." instance=ExtResource("17_uj6jq")]
-transform = Transform3D(-0.00171541, -0.00159738, 0.112478, 0.00337158, 0.11244, 0.00164825, -0.112439, 0.00339598, -0.00166659, -1.54133, 2.01607, 11.2947)
-skeleton = NodePath("../..")
-
-[node name="CleaningSprayJ24" parent="." instance=ExtResource("17_uj6jq")]
-transform = Transform3D(-0.00171541, -0.00159738, 0.112478, 0.00337158, 0.11244, 0.00164825, -0.112439, 0.00339598, -0.00166659, -1.54133, 2.01852, 11.4127)
-skeleton = NodePath("../..")
-
-[node name="CleaningSprayJ25" parent="." instance=ExtResource("17_uj6jq")]
-transform = Transform3D(-0.00171541, -0.00159738, 0.112478, 0.00337158, 0.11244, 0.00164825, -0.112439, 0.00339598, -0.00166659, -1.2939, 2.01342, 11.1675)
-skeleton = NodePath("../..")
-
-[node name="CleaningSprayJ26" parent="." instance=ExtResource("17_uj6jq")]
-transform = Transform3D(-0.00171541, -0.00159738, 0.112478, 0.00337158, 0.11244, 0.00164825, -0.112439, 0.00339598, -0.00166659, -1.2939, 2.01607, 11.2947)
-skeleton = NodePath("../..")
-
-[node name="CleaningSprayJ27" parent="." instance=ExtResource("17_uj6jq")]
-transform = Transform3D(-0.00171541, -0.00159738, 0.112478, 0.00337158, 0.11244, 0.00164825, -0.112439, 0.00339598, -0.00166659, -1.2939, 2.01852, 11.4127)
 skeleton = NodePath("../..")
 
 [node name="CleaningSprayJ28" parent="." instance=ExtResource("17_uj6jq")]

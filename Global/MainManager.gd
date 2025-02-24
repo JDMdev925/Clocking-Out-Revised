@@ -9,6 +9,7 @@ var MovementLocked = false
 var HeldItem: Node3D
 var ItemsPlaced : int
 var Player: CharacterBody3D
+var playerPos: Vector3
 
 #Objectives Complete
 var TillComplete = false
@@ -21,6 +22,10 @@ var hasTorch = false
 var BadLights = false
 var LockComplete = false
 var BoxComplete = false
+
+var firstload = true
+
+var endReached = false
 
 signal display_dialogue(dialogue_key)
 signal update_dialogue()
@@ -60,6 +65,7 @@ func increase_shelf_int():
 	ItemsPlaced += 1
 	if (ItemsPlaced >= 4):
 		self.emit_signal("shelves_stacked")
+		ShelvesStacked = true
 
 func play_bg_audio():
 	var randomInt = MainManager.rng.randi_range(1,3)

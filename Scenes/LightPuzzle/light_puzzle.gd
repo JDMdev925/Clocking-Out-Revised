@@ -60,7 +60,7 @@ func changeColours() -> void:
 		Light4.modulate = Color(0.813, 0.322, 0)
 
 func checkCorrect() -> void:
-	if(A and B and C and D) and !MainManager.LightsComplete:
+	if(A and B and C and D) and !MainManager.LightsComplete and !MainManager.hasKey:
 		Light5.modulate = Color(0.681, 0.537, 0.873)
 		MainManager.LightsComplete = true
 		for button in get_children():

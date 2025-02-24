@@ -1,22 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://d0ej1raa0eym3"]
+[gd_scene load_steps=14 format=3 uid="uid://d0ej1raa0eym3"]
 
 [ext_resource type="PackedScene" uid="uid://cdhbe21kmh2w6" path="res://Prefabs/Player/PlayerCharacter.tscn" id="1_3l8qs"]
 [ext_resource type="Script" path="res://Scenes/ConvenienceStore/Scripts/interactable_script.gd" id="1_e1alj"]
-[ext_resource type="Texture2D" uid="uid://d0wbip7das54e" path="res://Scenes/ConvenienceStore/Assets/Page 1.svg" id="1_mmtop"]
-[ext_resource type="PackedScene" uid="uid://c06tdomveeeu2" path="res://Prefabs/DialogueReciever/DialogueReciever.tscn" id="1_qg2rs"]
-[ext_resource type="Script" path="res://Scenes/ConvenienceStore/HUD_Script.gd" id="1_xsj26"]
-[ext_resource type="Texture2D" uid="uid://chouf5os05o7w" path="res://Scenes/ConvenienceStore/Assets/IMG_2875.PNG" id="3_lj81t"]
-[ext_resource type="Texture2D" uid="uid://ymjri7523tvj" path="res://Scenes/ConvenienceStore/Assets/IMG_2890.PNG" id="4_w35wd"]
+[ext_resource type="PackedScene" uid="uid://bq6iepakjbh4m" path="res://HUD.tscn" id="1_xg0pi"]
 [ext_resource type="Texture2D" uid="uid://bc3ax48fjh3oh" path="res://Scenes/ConvenienceStore/Assets/temp_poster.png" id="5_77cbp"]
-[ext_resource type="FontFile" uid="uid://caegfgiquyuqy" path="res://Scenes/MainMenu/Assets/Fonts/DotGothic16-Regular.ttf" id="5_cbci7"]
-[ext_resource type="Theme" uid="uid://bug47d73a6l83" path="res://Scenes/MainMenu/Assets/Themes/MainMenu.tres" id="6_6r7xj"]
 [ext_resource type="Texture2D" uid="uid://cpfg88dyddxud" path="res://Scenes/ConvenienceStore/Assets/temp_poster_2.png" id="6_nm5b7"]
 [ext_resource type="Script" path="res://Scenes/Bad_Ending/Scripts/BombInteract.gd" id="10_0lyde"]
-
-[sub_resource type="Theme" id="Theme_cknyc"]
-
-[sub_resource type="Theme" id="Theme_g2fa2"]
-default_font = ExtResource("5_cbci7")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hhdhu"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -42,95 +31,7 @@ size = Vector3(0.907776, 1.4231, 0.70459)
 
 [node name="ConvenienceStore" type="Node3D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Node2D" type="Node2D" parent="CanvasLayer/Control" node_paths=PackedStringArray("key", "boxFull", "Title", "Obj1", "Obj2", "Obj3")]
-script = ExtResource("1_xsj26")
-key = NodePath("InvKey")
-boxFull = NodePath("InvBox/InvBoxFull")
-Title = NodePath("../VBoxContainer/RichTextLabel")
-Obj1 = NodePath("../VBoxContainer/Objective 1")
-Obj2 = NodePath("../VBoxContainer/Objective 2")
-Obj3 = NodePath("../VBoxContainer/Objective 3")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/Node2D"]
-position = Vector2(935, 551)
-scale = Vector2(0.757104, 0.720017)
-
-[node name="InvBox" type="Sprite2D" parent="CanvasLayer/Control/Node2D"]
-position = Vector2(1739, 914)
-texture = ExtResource("1_mmtop")
-
-[node name="InvBoxFull" type="Sprite2D" parent="CanvasLayer/Control/Node2D/InvBox"]
-position = Vector2(0.999996, 2.00001)
-scale = Vector2(0.197685, 0.197685)
-texture = ExtResource("3_lj81t")
-
-[node name="InvKey" type="Sprite2D" parent="CanvasLayer/Control/Node2D"]
-visible = false
-position = Vector2(1523, 848)
-scale = Vector2(0.108872, 0.108872)
-texture = ExtResource("4_w35wd")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 19.0
-offset_right = 411.0
-offset_bottom = 181.0
-theme = SubResource("Theme_cknyc")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/VBoxContainer"]
-layout_mode = 2
-theme = SubResource("Theme_g2fa2")
-theme_override_font_sizes/normal_font_size = 48
-text = "Objectives:"
-fit_content = true
-
-[node name="Objective 1" type="CheckBox" parent="CanvasLayer/Control/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("6_6r7xj")
-theme_override_fonts/font = ExtResource("5_cbci7")
-text = " Stack Shelves"
-expand_icon = true
-
-[node name="Objective 2" type="CheckBox" parent="CanvasLayer/Control/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("6_6r7xj")
-theme_override_fonts/font = ExtResource("5_cbci7")
-text = "Count Money In Till"
-expand_icon = true
-
-[node name="Objective 3" type="CheckBox" parent="CanvasLayer/Control/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("6_6r7xj")
-theme_override_fonts/font = ExtResource("5_cbci7")
-text = "Turn Off Lights"
-expand_icon = true
-
-[node name="Dialogue" type="Label" parent="CanvasLayer/Control"]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 687.0
-offset_top = 976.0
-offset_right = 1083.0
-offset_bottom = 1056.0
-theme_override_fonts/font = ExtResource("5_cbci7")
-theme_override_font_sizes/font_size = 20
-
-[node name="DialogueReciever" parent="CanvasLayer/Control/Dialogue" node_paths=PackedStringArray("Display") instance=ExtResource("1_qg2rs")]
-Display = NodePath("..")
-typing_speed = 0.03
+[node name="CanvasLayer" parent="." instance=ExtResource("1_xg0pi")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2w04y")

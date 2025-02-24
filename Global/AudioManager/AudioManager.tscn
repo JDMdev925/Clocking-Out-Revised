@@ -252,7 +252,7 @@ script = ExtResource("2_b62ky")
 limit = 2
 type = 30
 sound_effect = ExtResource("31_sdwl2")
-volume = -15.0
+volume = -10.0
 pitch_scale = 1.0
 pitch_randomness = 0.0
 

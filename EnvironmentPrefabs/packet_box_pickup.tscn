@@ -1,0 +1,20 @@
+[gd_scene load_steps=7 format=3 uid="uid://ca8btebgfxb8c"]
+
+[ext_resource type="ArrayMesh" uid="uid://bimyu703hnvx4" path="res://EnvironmentPrefabs/Models/PacketBox.obj" id="1_2ox4d"]
+[ext_resource type="Texture2D" uid="uid://b5benk4qdxwg" path="res://EnvironmentPrefabs/Materials/PacketBox1/DefaultMaterial_Base_color.png" id="2_pbomf"]
+[ext_resource type="Texture2D" uid="uid://cp1kf5xgblm4o" path="res://EnvironmentPrefabs/Materials/PacketBox1/DefaultMaterial_Metallic.png" id="3_5p3mg"]
+[ext_resource type="Texture2D" uid="uid://3mbxmnj2kcgc" path="res://EnvironmentPrefabs/Materials/PacketBox1/DefaultMaterial_Normal.png" id="4_p4x4i"]
+[ext_resource type="Texture2D" uid="uid://djs85b152aoop" path="res://EnvironmentPrefabs/Materials/PacketBox1/DefaultMaterial_Roughness.png" id="5_7mfhw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ej2bx"]
+albedo_texture = ExtResource("2_pbomf")
+metallic = 1.0
+metallic_texture = ExtResource("3_5p3mg")
+roughness_texture = ExtResource("5_7mfhw")
+normal_enabled = true
+normal_texture = ExtResource("4_p4x4i")
+
+[node name="PacketBox" type="MeshInstance3D"]
+transform = Transform3D(-9.77672e-09, -2.26055e-09, 0.229566, -0.0517153, 0.223665, 0, -0.223665, -0.0517153, -1.00347e-08, 0, 0, 0)
+mesh = ExtResource("1_2ox4d")
+surface_material_override/0 = SubResource("StandardMaterial3D_ej2bx")

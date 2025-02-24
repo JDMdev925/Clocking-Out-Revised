@@ -15,11 +15,11 @@ func read() -> void:
 	waitTimer.wait_time = 5
 	waitTimer.start()
 	waitTimer.connect("timeout", Callable(self, "_on_timer_timeout"))
+	MainManager.MovementLocked = true
 
 func _on_timer_timeout() -> void:
 	if(beenHit):
 		start = false
-		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.LAYERED_EXPLOSION)
 		waitTimer.stop()
 		SceneSwitcher.switch_scene(SceneSwitcher.SceneType.BAD_END)
 	else:

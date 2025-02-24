@@ -15,9 +15,13 @@ func _ready() -> void:
 	MainManager.connect("display_dialogue",Callable( self, "_on_display_dialogue"))
 	dialogue_text = load_scene_text()
 	Display.visible_characters = 0
+	
 
 # Function that runs when the signal is emitted
 func _on_display_dialogue(dialogue_key):
+	$Timer.stop()
+	Display.visible_characters = 0
+	current_index = 0
 	Display.visible = true
 	current_key = dialogue_key
 	if dialogue_text.has(current_key):

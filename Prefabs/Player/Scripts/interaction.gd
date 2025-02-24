@@ -14,6 +14,7 @@ func _input(event):
 		if in_view != null:
 			match in_view.get("ID"):
 				0:
+					
 					in_view.object()
 				1:
 					in_view.area()

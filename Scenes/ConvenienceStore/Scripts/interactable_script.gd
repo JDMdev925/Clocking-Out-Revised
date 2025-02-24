@@ -19,20 +19,25 @@ func object() -> void:
 	
 
 func area() -> void:
+	var itempos : Marker3D
 	for child in get_children():
 		if(child.get("ID") != null):
 			return
+		if (child is Marker3D):
+			itempos = child
 	#PLACE OBJECT CODE HERE
-	if(MainManager.HeldItem != null):
+	if(MainManager.HeldItem != null && itempos != null):
 		reparent(MainManager.HeldItem)
 		MainManager.HeldItem.visible = true
-		MainManager.HeldItem.global_position = global_position
+		MainManager.HeldItem.global_position = itempos.global_position
+		MainManager.HeldItem.global_rotation = itempos.global_rotation
 		MainManager.HeldItem = null
 		MainManager.increase_shelf_int()
+		
 		play_audio()
 
 func read() -> void:
-	SpriteRef.texture = parent.texture
+	SpriteRef.texture = get_parent().texture
 	HUDcontrol.mouse_filter = Control.MOUSE_FILTER_STOP
 	AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.PICKUP)
 	MainManager.MovementLocked = true
@@ -48,7 +53,7 @@ func drop() -> void:
 	if(MainManager.HeldItem != null):
 		play_audio()
 		MainManager.HeldItem.visible = true
-		MainManager.HeldItem.global_position = MainManager.Player.global_position
+		MainManager.HeldItem.global_position = MainManager.playerPos
 		MainManager.HeldItem = null
 	
 func release() -> void:

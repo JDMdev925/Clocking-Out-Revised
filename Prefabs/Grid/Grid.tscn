@@ -9,7 +9,6 @@ label = NodePath("RichTextLabel")
 cell_size = 100
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_fonts/normal_font = ExtResource("2_jfjtl")

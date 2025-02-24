@@ -1,18 +1,18 @@
 {
 	
 	"good_tasks_unfinished":[
-		"I gotta finish my tasks before I lock up or my boss is gonna kill me"
+		"I gotta finish my tasks before I lock up or my boss is gonna kill me "
 	],
 
 	"good_tasks_finished":[
-		"Guess I'm done for the day, got to lock up before I leave"
+		"Guess I'm done for the day, got to lock up before I leave "
 	],
 
 	"no_key":[
-		"Wait where's my key? - Can't see a damn thing now the lights are out"
+		"Wait where's my key? - Can't see a damn thing now the lights are out "
 	],
 	"bad_door":[
-		"Damn. Locked. Guess I should go find the spare key..."
+		"Damn. Locked. Guess I should go find the spare key... "
 	],
 
 	"reaction":[
@@ -20,12 +20,17 @@
 	],
 
 	"bad_end":[
-		"What on earth?",
+		"What on earth? ",
 		"???: You weren't suppose to be here..."
 	],
 
 	"good_end":[
 		"Time to clock out..."
-	]
+	],
+	
+	"post-it":
+	["Ah yes! My password - can't forget that! "],
 
+	"box":
+	["I'm not moving these boxes without a reason "]
 }

@@ -14,14 +14,14 @@ func _ready() -> void:
 	cam = $Camera3D
 
 func _unhandled_input(event: InputEvent) -> void:
-	if (Input.mouse_mode == Input.MOUSE_MODE_CAPTURED) and (event is InputEventMouseMotion):
+	if (Input.mouse_mode == Input.MOUSE_MODE_CAPTURED) and (event is InputEventMouseMotion) and(!MainManager.MovementLocked):
 		rotate_y(-event.relative.x * 0.01)
 		cam.rotate_x(-event.relative.y * 0.01)
 		cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	update_flashlight(delta)
+		update_flashlight(delta)
 	#var mouse_x : float = cam.project_ray_normal()
 	#var mouse_y : float = get_viewport().get_mouse_position().y
 	

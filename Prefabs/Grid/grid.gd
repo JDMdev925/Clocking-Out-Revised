@@ -4,7 +4,6 @@ var yBox = preload("res://Prefabs/WoodenSlideY/WoodenSlideY.tscn")
 var xBox = preload("res://Prefabs/WoodenSlideX/WoodenSlideX.tscn")
 @export var label:RichTextLabel
 
-
 var grid_size = 6
 @export var cell_size = 50
 
@@ -17,7 +16,8 @@ func _process(delta: float) -> void:
 		if(player.position.x >=cell_size * 5):
 			MainManager.BoxComplete = true
 			SceneSwitcher.switch_scene(SceneSwitcher.SceneType.STORE)
-		label.global_position = player.global_position + Vector2(0, -cell_size / 4 )
+		if player != null:
+			label.global_position = player.global_position + Vector2(0, -cell_size / 4 )
 
 func setUp() -> void:
 	#Ys
@@ -53,5 +53,6 @@ func place_objects_in_grid(xPos, yPos, box,length ,target):
 
 func _on_button_pressed() -> void:
 	for child in get_children():
-		child.queue_free()
+		if (child is not RichTextLabel) and (child is not Marker2D):
+			child.queue_free()
 	setUp()

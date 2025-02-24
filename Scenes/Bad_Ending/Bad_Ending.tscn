@@ -7,11 +7,13 @@
 script = ExtResource("1_2u8l6")
 
 [node name="SpareBackground" type="Sprite2D" parent="."]
-position = Vector2(800, 552)
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1032, 480)
+scale = Vector2(1.37292, 1.454)
 texture = ExtResource("2_nnfef")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

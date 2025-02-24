@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7j8e74syt0br"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu/Scripts/MainMenu.gd" id="1_ref1v"]
-[ext_resource type="Texture2D" uid="uid://chme6c0ld0txm" path="res://Scenes/MainMenu/Assets/8b09b52dd64e74a2dd9a788a5d908794.jpg" id="2_i0lmp"]
+[ext_resource type="Texture2D" uid="uid://euqdck62j6gx" path="res://Main_Menu.PNG" id="2_2rqbi"]
 [ext_resource type="Theme" uid="uid://bug47d73a6l83" path="res://Scenes/MainMenu/Assets/Themes/MainMenu.tres" id="2_ocj14"]
 [ext_resource type="FontFile" uid="uid://caegfgiquyuqy" path="res://Scenes/MainMenu/Assets/Fonts/DotGothic16-Regular.ttf" id="4_2blwq"]
 [ext_resource type="Texture2D" uid="uid://c4ro2sp6aqj0i" path="res://Scenes/MainMenu/Assets/Clocking out logo.png" id="5_kffvu"]
@@ -35,9 +35,9 @@ grow_vertical = 2
 color = Color(0.0235294, 0.0235294, 0.0235294, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG"]
-position = Vector2(1059, 549)
-scale = Vector2(2.18209, 2.18209)
-texture = ExtResource("2_i0lmp")
+position = Vector2(1026, 587)
+scale = Vector2(1.08499, 1.08499)
+texture = ExtResource("2_2rqbi")
 
 [node name="MarginContainer" type="MarginContainer" parent="BG"]
 layout_mode = 1

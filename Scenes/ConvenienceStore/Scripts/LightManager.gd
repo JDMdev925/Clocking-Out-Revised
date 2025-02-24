@@ -7,4 +7,4 @@ func updateLights():
 	var StoreLights = get_tree().get_nodes_in_group("StoreLights")
 	for lights in StoreLights:
 		if lights is OmniLight3D:  
-			lights.light_energy = 0.01
+			lights.light_energy = 0
