@@ -33,7 +33,6 @@ mesh = ExtResource("1_fndg3")
 surface_material_override/0 = SubResource("StandardMaterial3D_vfcdp")
 
 [node name="TillDrawer" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.997191, 0, 0, 0, 0.997191, 0, 0, 0, 0.997191, -0.0490608, -0.024703, 1.14623)
-visible = false
+transform = Transform3D(0.997191, 0, 0, 0, 0.997191, 0, 0, 0, 0.997191, -0.0490608, -0.024703, -1.71162)
 mesh = ExtResource("6_47a51")
 surface_material_override/0 = SubResource("StandardMaterial3D_7rjr2")
