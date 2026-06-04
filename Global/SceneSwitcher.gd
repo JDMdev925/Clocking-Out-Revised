@@ -60,9 +60,6 @@ func _deferred_switch_scene(new_scene):
 	
 	
 func _input(event):
-	if event.is_action_pressed("Esc"):
-		switch_scene(SceneType.MAIN_MENU)
-		current_scene_type = SceneType.MAIN_MENU
 	if event.is_action_pressed("Return") and current_scene_type != SceneType.STORE:
 		switch_scene(SceneType.STORE)
 		current_scene_type = SceneType.STORE

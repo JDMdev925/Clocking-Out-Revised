@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bett7kuhba32h"]
+
+[ext_resource type="Material" uid="uid://bf1lcal3mn6jc" path="res://EnvironmentPrefabs/Materials/WallsTemp_Mat.tres" id="1_my4c2"]
+[ext_resource type="Script" uid="uid://dr2njs4o5m33t" path="res://Scenes/ConvenienceStore/Scripts/interactable_script.gd" id="2_3hto6"]
+[ext_resource type="Texture2D" uid="uid://bbkwisqgjn4fl" path="res://poster 3.png" id="3_cu7w0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e2rpp"]
+size = Vector3(0.11291504, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_my4c2"]
+albedo_color = Color(0.6980411, 0.6800881, 0.6621595, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c6gp2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_my4c2"]
+
+[node name="Marker3D" type="Marker3D" unique_id=736255688]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=794783574]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, -0.5056012)
+script = ExtResource("2_3hto6")
+ID = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=119416020]
+transform = Transform3D(1, -3.3087225e-24, -1.54064955e-33, 3.3087225e-24, 1, -7.450322e-09, 2.6191698e-32, 7.450322e-09, 1, 0.0051879883, 0, 0)
+shape = SubResource("BoxShape3D_e2rpp")
+
+[node name="Shop Gate" type="MeshInstance3D" parent="StaticBody3D" unique_id=551625972]
+transform = Transform3D(0.042489093, -2.1175824e-22, 0, 0, 0.9999995, -5.031047e-10, -5.2939524e-23, 1.16415245e-10, 1.4405462, 0, 0, -0.22573453)
+material_override = ExtResource("1_my4c2")
+material_overlay = SubResource("StandardMaterial3D_my4c2")
+mesh = SubResource("BoxMesh_c6gp2")
+skeleton = NodePath("../../../../../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/Shop Gate" unique_id=312213557]
+transform = Transform3D(2.3116207, -1.4823077e-21, -9.486769e-20, 6.617445e-24, 0.18614642, -2.6193447e-10, 9.529121e-22, 2.910383e-11, 0.058415215, 0.029085726, 0.29826558, 0.48831683)
+mesh = SubResource("BoxMesh_my4c2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D/Shop Gate" unique_id=1957047249]
+transform = Transform3D(2.3116207, -1.5881868e-21, -1.01643954e-19, 6.82424e-24, 0.18614645, -2.6193447e-10, 9.529121e-22, 0, 0.05841522, 0.029085726, -0.28133747, 0.48910943)
+mesh = SubResource("BoxMesh_my4c2")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D/Shop Gate" unique_id=347992074]
+transform = Transform3D(-0.04042743, 2.8226367e-22, -1.3323386, 1.9770767e-11, 0.056635946, -5.999085e-13, 0.0392975, -4.5769356e-12, -0.0011924123, -0.76980853, 0.2123888, -0.026833892)
+texture = ExtResource("3_cu7w0")

@@ -1,0 +1,272 @@
+[gd_scene format=3 uid="uid://b84d8sa7kjtov"]
+
+[ext_resource type="Script" uid="uid://d06dr6hcjx8tc" path="res://Scenes/ConvenienceStore/HUD_Script.gd" id="1_v3g5h"]
+[ext_resource type="Texture2D" uid="uid://d0wbip7das54e" path="res://Scenes/ConvenienceStore/Assets/Page 1.svg" id="2_edeoa"]
+[ext_resource type="Texture2D" uid="uid://chouf5os05o7w" path="res://Scenes/ConvenienceStore/Assets/IMG_2875.PNG" id="3_ucr6g"]
+[ext_resource type="Texture2D" uid="uid://ymjri7523tvj" path="res://Scenes/ConvenienceStore/Assets/IMG_2890.PNG" id="4_r3lqp"]
+[ext_resource type="FontFile" uid="uid://caegfgiquyuqy" path="res://Scenes/MainMenu/Assets/Fonts/DotGothic16-Regular.ttf" id="5_qa8ho"]
+[ext_resource type="Theme" uid="uid://bug47d73a6l83" path="res://Scenes/MainMenu/Assets/Themes/MainMenu.tres" id="6_h1pcn"]
+[ext_resource type="PackedScene" uid="uid://c06tdomveeeu2" path="res://Prefabs/DialogueReciever/DialogueReciever.tscn" id="7_mugpj"]
+
+[sub_resource type="Theme" id="Theme_jqeto"]
+
+[sub_resource type="Theme" id="Theme_dhe60"]
+default_font = ExtResource("5_qa8ho")
+
+[node name="Control" type="Control" unique_id=1719185801 node_paths=PackedStringArray("key", "boxFull", "Title", "Obj1", "Obj2", "Obj3", "pauseMenu", "backButton", "pauseTitle", "generalMenu", "settingsMenu", "achievementMenu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_v3g5h")
+key = NodePath("Node2D/InvKey")
+boxFull = NodePath("Node2D/InvBox/InvBoxFull")
+Title = NodePath("VBoxContainer/RichTextLabel")
+Obj1 = NodePath("VBoxContainer/Objective 1")
+Obj2 = NodePath("VBoxContainer/Objective 2")
+Obj3 = NodePath("VBoxContainer/Objective 3")
+pauseMenu = NodePath("Pause Menu")
+backButton = NodePath("Pause Menu/Back Button")
+pauseTitle = NodePath("Pause Menu/Label")
+generalMenu = NodePath("Pause Menu/General")
+settingsMenu = NodePath("Pause Menu/Settings")
+achievementMenu = NodePath("Pause Menu/Achievements")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=546233368]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=410068743]
+position = Vector2(935, 551)
+scale = Vector2(0.757104, 0.720017)
+
+[node name="InvBox" type="Sprite2D" parent="Node2D" unique_id=627361825]
+position = Vector2(1739, 914)
+texture = ExtResource("2_edeoa")
+
+[node name="InvBoxFull" type="Sprite2D" parent="Node2D/InvBox" unique_id=1464723378]
+position = Vector2(0.999996, 2.00001)
+scale = Vector2(0.197685, 0.197685)
+texture = ExtResource("3_ucr6g")
+
+[node name="InvKey" type="Sprite2D" parent="Node2D" unique_id=828286248]
+visible = false
+position = Vector2(1523, 848)
+scale = Vector2(0.108872, 0.108872)
+texture = ExtResource("4_r3lqp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1200210101]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 19.0
+offset_right = 411.0
+offset_bottom = 181.0
+theme = SubResource("Theme_jqeto")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=618275401]
+layout_mode = 2
+theme = SubResource("Theme_dhe60")
+theme_override_font_sizes/normal_font_size = 48
+text = "Objectives:"
+fit_content = true
+
+[node name="Objective 1" type="CheckBox" parent="VBoxContainer" unique_id=836153616]
+layout_mode = 2
+theme = ExtResource("6_h1pcn")
+theme_override_fonts/font = ExtResource("5_qa8ho")
+text = " Stack Shelves"
+expand_icon = true
+
+[node name="Objective 2" type="CheckBox" parent="VBoxContainer" unique_id=296726844]
+layout_mode = 2
+theme = ExtResource("6_h1pcn")
+theme_override_fonts/font = ExtResource("5_qa8ho")
+text = "Count Money In Till"
+expand_icon = true
+
+[node name="Objective 3" type="CheckBox" parent="VBoxContainer" unique_id=1659908386]
+layout_mode = 2
+theme = ExtResource("6_h1pcn")
+theme_override_fonts/font = ExtResource("5_qa8ho")
+text = "Turn Off Lights"
+expand_icon = true
+
+[node name="Dialogue" type="Label" parent="." unique_id=997418568]
+layout_mode = 0
+offset_left = 687.0
+offset_top = 976.0
+offset_right = 1083.0
+offset_bottom = 1056.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_qa8ho")
+theme_override_font_sizes/font_size = 20
+text = "Hello"
+autowrap_mode = 2
+
+[node name="DialogueReciever" parent="Dialogue" unique_id=703010099 node_paths=PackedStringArray("Display") instance=ExtResource("7_mugpj")]
+Display = NodePath("..")
+typing_speed = 0.03
+
+[node name="Pause Menu" type="Control" parent="." unique_id=1258162291]
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="Pause Menu" unique_id=179037109]
+layout_mode = 0
+offset_right = 1921.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.54509807)
+
+[node name="Label" type="Label" parent="Pause Menu" unique_id=1327488986]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.0
+offset_top = 76.0
+offset_right = 275.0
+offset_bottom = 221.0
+grow_horizontal = 2
+theme = ExtResource("6_h1pcn")
+theme_override_font_sizes/font_size = 100
+text = "GAME PAUSED"
+horizontal_alignment = 1
+
+[node name="General" type="Control" parent="Pause Menu" unique_id=1257642629]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause Menu/General" unique_id=2077343044]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 713.0
+offset_top = 290.0
+offset_right = 1169.0
+offset_bottom = 850.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Button" type="Button" parent="Pause Menu/General/VBoxContainer" unique_id=148124069]
+layout_mode = 2
+theme = ExtResource("6_h1pcn")
+theme_override_font_sizes/font_size = 76
+text = "RESUME"
+
+[node name="Button2" type="Button" parent="Pause Menu/General/VBoxContainer" unique_id=1209448169]
+layout_mode = 2
+theme = ExtResource("6_h1pcn")
+theme_override_font_sizes/font_size = 76
+text = "ACHIEVEMENTS"
+
+[node name="Button3" type="Button" parent="Pause Menu/General/VBoxContainer" unique_id=189047789]
+layout_mode = 2
+theme = ExtResource("6_h1pcn")
+theme_override_font_sizes/font_size = 76
+text = "SETTINGS"
+
+[node name="Button4" type="Button" parent="Pause Menu/General/VBoxContainer" unique_id=1793813350]
+layout_mode = 2
+theme = ExtResource("6_h1pcn")
+theme_override_font_sizes/font_size = 76
+text = "QUIT"
+
+[node name="Settings" type="Control" parent="Pause Menu" unique_id=296411484]
+visible = false
+anchors_preset = 0
+offset_right = 1918.0
+offset_bottom = 1077.0
+
+[node name="Label" type="Label" parent="Pause Menu/Settings" unique_id=1411144210]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = -35.0
+offset_right = 432.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_h1pcn")
+theme_override_font_sizes/font_size = 48
+text = "Settings are not available right now"
+
+[node name="Achievements" type="Control" parent="Pause Menu" unique_id=667333491]
+anchors_preset = 0
+offset_right = 1918.0
+offset_bottom = 1080.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause Menu/Achievements" unique_id=968200647]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -699.0
+offset_top = -273.0
+offset_right = 701.0
+offset_bottom = 427.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 54
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause Menu/Achievements/HBoxContainer" unique_id=1008817859]
+custom_minimum_size = Vector2(600, 700)
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="ColorRect" type="ColorRect" parent="Pause Menu/Achievements/HBoxContainer/VBoxContainer" unique_id=714231019]
+custom_minimum_size = Vector2(100.1, 150)
+layout_mode = 2
+color = Color(0.601223, 0.601223, 0.60122293, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Pause Menu/Achievements/HBoxContainer/VBoxContainer" unique_id=517210702]
+custom_minimum_size = Vector2(100.1, 150)
+layout_mode = 2
+color = Color(0.6, 0.6, 0.6, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Pause Menu/Achievements/HBoxContainer" unique_id=1066571209]
+custom_minimum_size = Vector2(600, 700)
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="ColorRect" type="ColorRect" parent="Pause Menu/Achievements/HBoxContainer/VBoxContainer2" unique_id=1312243435]
+custom_minimum_size = Vector2(100.1, 150)
+layout_mode = 2
+color = Color(0.6, 0.6, 0.6, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Pause Menu/Achievements/HBoxContainer/VBoxContainer2" unique_id=1869433043]
+custom_minimum_size = Vector2(100.1, 150)
+layout_mode = 2
+color = Color(0.6, 0.6, 0.6, 1)
+
+[node name="Back Button" type="Button" parent="Pause Menu" unique_id=1910971769]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 934.0
+offset_right = 194.0
+offset_bottom = 1028.0
+theme = ExtResource("6_h1pcn")
+theme_override_font_sizes/font_size = 64
+text = "BACK"
+
+[connection signal="pressed" from="Pause Menu/General/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Pause Menu/General/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Pause Menu/General/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Pause Menu/General/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Pause Menu/Back Button" to="." method="_on_back_button_pressed"]

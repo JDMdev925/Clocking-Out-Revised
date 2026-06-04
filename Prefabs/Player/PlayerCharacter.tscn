@@ -1,12 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://cdhbe21kmh2w6"]
+[gd_scene format=3 uid="uid://cdhbe21kmh2w6"]
 
-[ext_resource type="Script" path="res://Prefabs/Player/Scripts/movement_script.gd" id="1_thbuj"]
-[ext_resource type="Script" path="res://Prefabs/Player/Scripts/camera_script.gd" id="2_ei3r6"]
+[ext_resource type="Script" uid="uid://bx267eqaclwm0" path="res://Prefabs/Player/Scripts/movement_script.gd" id="1_thbuj"]
+[ext_resource type="Script" uid="uid://pb3ihmioxfjq" path="res://Prefabs/Player/Scripts/camera_script.gd" id="2_ei3r6"]
 [ext_resource type="Texture2D" uid="uid://cpc200ssfs8pq" path="res://Prefabs/Flashlight/Asset/Flashlight.png" id="2_j60eu"]
-[ext_resource type="Shader" path="res://Scenes/ConvenienceStore/Scripts/pixel_filter.gdshader" id="3_o6vmr"]
-[ext_resource type="Script" path="res://Prefabs/Player/Scripts/interaction.gd" id="4_g41nh"]
+[ext_resource type="Shader" uid="uid://cr1fy1ccj5051" path="res://Scenes/ConvenienceStore/Scripts/pixel_filter.gdshader" id="3_o6vmr"]
+[ext_resource type="Script" uid="uid://bsk3br14dvhcj" path="res://Prefabs/Player/Scripts/interaction.gd" id="4_g41nh"]
 [ext_resource type="Texture2D" uid="uid://2tmlg1wsw3r" path="res://Prefabs/Player/Assets/cursor_idle.png" id="5_q7rji"]
-[ext_resource type="Script" path="res://Prefabs/Player/Scripts/cursor.gd" id="6_mb7uu"]
+[ext_resource type="Script" uid="uid://cwxe1klhkrn73" path="res://Prefabs/Player/Scripts/cursor.gd" id="6_mb7uu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yimsp"]
 
@@ -69,21 +69,21 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l4pit"]
 _data = {
-"RESET": SubResource("Animation_fxys5"),
-"head_bob": SubResource("Animation_sg78q")
+&"RESET": SubResource("Animation_fxys5"),
+&"head_bob": SubResource("Animation_sg78q")
 }
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1214576013]
 script = ExtResource("1_thbuj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=600241341]
 shape = SubResource("CapsuleShape3D_yimsp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1066017299]
 mesh = SubResource("CapsuleMesh_36g68")
 surface_material_override/0 = SubResource("StandardMaterial3D_3xk37")
 
-[node name="Flashlight" type="SpotLight3D" parent="."]
+[node name="Flashlight" type="SpotLight3D" parent="." unique_id=354074928]
 transform = Transform3D(0.999829, 0, 0.0185166, 0, 1, 0, -0.0185166, 0, 0.999829, 2.50242e-07, 0.37549, -0.0371288)
 visible = false
 light_energy = 1.5
@@ -92,33 +92,32 @@ shadow_enabled = true
 spot_range = 7.64146
 spot_angle = 29.1764
 
-[node name="Pivot" type="Marker3D" parent="."]
+[node name="Pivot" type="Marker3D" parent="." unique_id=1161049402]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.743527, 0)
 script = ExtResource("2_ei3r6")
 
-[node name="Camera3D" type="Camera3D" parent="Pivot"]
+[node name="Camera3D" type="Camera3D" parent="Pivot" unique_id=1222179835]
+transform = Transform3D(1, 3.5853315e-08, 7.69024e-09, -3.5853322e-08, 0.9120342, 0.41011405, 7.690211e-09, -0.41011405, 0.9120342, 0, 0, 0)
 current = true
 
-[node name="PostProcessor" type="MeshInstance3D" parent="Pivot/Camera3D"]
+[node name="PostProcessor" type="MeshInstance3D" parent="Pivot/Camera3D" unique_id=110491790]
 visible = false
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_5ihpt")
 skeleton = NodePath("../..")
 
-[node name="Area3D" type="Area3D" parent="Pivot/Camera3D"]
+[node name="Area3D" type="Area3D" parent="Pivot/Camera3D" unique_id=1926772431]
 transform = Transform3D(-1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 1.03542e-07, -0.127786, -1.18438)
 collision_layer = 3
 script = ExtResource("4_g41nh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Camera3D/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Camera3D/Area3D" unique_id=306295895]
 shape = SubResource("CylinderShape3D_au0s6")
 
-[node name="Bobbing" type="AnimationPlayer" parent="Pivot/Camera3D"]
-libraries = {
-"": SubResource("AnimationLibrary_l4pit")
-}
+[node name="Bobbing" type="AnimationPlayer" parent="Pivot/Camera3D" unique_id=327783000]
+libraries/ = SubResource("AnimationLibrary_l4pit")
 
-[node name="Cursor" type="Sprite2D" parent="."]
+[node name="Cursor" type="Sprite2D" parent="." unique_id=1369432350]
 position = Vector2(4.76837e-07, 4.76837e-07)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_q7rji")

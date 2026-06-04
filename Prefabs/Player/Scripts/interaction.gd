@@ -22,6 +22,8 @@ func _input(event):
 					in_view.read()
 				3:
 					in_view.change_scene()
+				4:
+					in_view.toggle_gate()
 		  
 	   #DialogueAreaHandle
 			MainManager.emit_signal("update_dialogue")

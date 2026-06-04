@@ -1,14 +1,22 @@
 class_name Interactable
 extends Node3D
 
-@onready var SpriteRef : Sprite2D = $"../../../CanvasLayer/Control/Node2D/Sprite2D"
-@onready var HUDcontrol : Control = $"../../../CanvasLayer/Control"
+@onready var SpriteRef : Sprite2D
+@onready var HUDcontrol : Control
 
 @export var parent : Sprite3D
 @export var ID: int = -1
+@export var item_code : int = 0
 @export var dialogue_key:String = ""
 @export var SceneType : SceneSwitcher.SceneType
+var gate_closed : bool = true
 
+func _ready() -> void:
+	if $"../../../CanvasLayer/Control/Node2D/Sprite2D" != null:
+		SpriteRef = $"../../../CanvasLayer/Control/Node2D/Sprite2D"
+	
+	if $"../../../CanvasLayer/Control" != null:
+		HUDcontrol = $"../../../CanvasLayer/Control"
 
 func object() -> void:
 	if(MainManager.HeldItem == null):
@@ -31,6 +39,12 @@ func area() -> void:
 		MainManager.HeldItem.visible = true
 		MainManager.HeldItem.global_position = itempos.global_position
 		MainManager.HeldItem.global_rotation = itempos.global_rotation
+		
+		if (MainManager.HeldItem.item_code == item_code):
+			AcheivementManager.UpdateAchievement("ACH_3")
+		else:
+			AcheivementManager.UpdateAchievement("ACH_4")
+		
 		MainManager.HeldItem = null
 		MainManager.increase_shelf_int()
 		
@@ -61,6 +75,14 @@ func release() -> void:
 		SpriteRef.texture = null
 		HUDcontrol.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		MainManager.MovementLocked = false
+
+func toggle_gate() -> void:
+	if gate_closed:
+		$"..".rotate_y(-1.570796)
+		gate_closed = false
+	else:
+		$"..".rotate_y(1.570796)
+		gate_closed = true
 
 func change_scene():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

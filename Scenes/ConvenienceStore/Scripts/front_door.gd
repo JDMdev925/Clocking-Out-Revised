@@ -30,3 +30,4 @@ func updateDialogue():
 
 func changeScene():
 	SceneSwitcher.switch_scene(SceneSwitcher.SceneType.GOOD_END)
+	AcheivementManager.UpdateAchievement("ACH_1")

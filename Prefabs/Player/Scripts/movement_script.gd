@@ -9,10 +9,10 @@ func _ready() -> void:
 	MainManager.MovementLocked = false
 	camera = $Pivot
 	
-	if(MainManager.playerPos != null and !MainManager.firstload):
-		global_position = MainManager.playerPos
-	else:
-		MainManager.firstload = false
+	#if(MainManager.playerPos != null and !MainManager.firstload):
+		#global_position = MainManager.playerPos
+	#else:
+		#MainManager.firstload = false
 	
 
 func _physics_process(delta: float) -> void:
@@ -21,8 +21,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 # movement & rotation
-	var h_axis : float = Input.get_axis("c_left", "c_right")
-	var v_axis : float = Input.get_axis("c_up","c_down")
+	var h_axis : float = Input.get_axis("c_right", "c_left")
+	var v_axis : float = Input.get_axis("c_down","c_up")
 	
 	var direction : Vector3 = (camera.basis * Vector3(h_axis, 0, v_axis)).normalized()
 	

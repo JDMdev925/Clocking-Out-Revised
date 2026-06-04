@@ -8,11 +8,15 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
-config/name="Clocking_Out"
+config/name="Clocking_Out_Revised"
 run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0.0156863, 0.027451, 0.109804, 1)
 boot_splash/image="res://Chill_Yourself_Logo.PNG"
 config/icon="res://Icon.PNG"
@@ -23,6 +27,7 @@ MainManager="*res://Global/MainManager.gd"
 SceneSwitcher="*res://Global/SceneSwitcher.gd"
 AudioPlayer="*res://Prefabs/Audio_Player/Scripts/audio_player.gd"
 AudioManager="*res://Global/AudioManager/AudioManager.tscn"
+AcheivementManager="*uid://bm74vhkcb0ca7"
 
 [display]
 
