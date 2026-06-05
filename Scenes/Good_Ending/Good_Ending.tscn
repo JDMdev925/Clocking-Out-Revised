@@ -1,41 +1,41 @@
-[gd_scene load_steps=8 format=3 uid="uid://cych6fmry8s5r"]
+[gd_scene format=3 uid="uid://cych6fmry8s5r"]
 
 [ext_resource type="Texture2D" uid="uid://d26wxcs1s4bj3" path="res://Scenes/SlidingPuzzle/Assets/SpareBackground.jpg" id="1_2b2xr"]
-[ext_resource type="Script" path="res://Scenes/Good_Ending/good_ending.gd" id="1_skqk3"]
+[ext_resource type="Script" uid="uid://dp48pc3eyja5o" path="res://Scenes/Good_Ending/good_ending.gd" id="1_skqk3"]
 [ext_resource type="Texture2D" uid="uid://bkwbxstgm8rm0" path="res://Scenes/Good_Ending/Assets/Newspaper.png" id="2_mai68"]
 [ext_resource type="Texture2D" uid="uid://dl7boi876r6gh" path="res://Scenes/MainMenu/Assets/Back_Button2.png" id="4_ilp1p"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqy8o"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1yfum"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bog7x"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1yfum"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqy8o"]
 
-[node name="GoodEnding" type="Node2D"]
+[node name="GoodEnding" type="Node2D" unique_id=1430669014]
 script = ExtResource("1_skqk3")
 
-[node name="SpareBackground" type="Sprite2D" parent="."]
+[node name="SpareBackground" type="Sprite2D" parent="." unique_id=1320447375]
 modulate = Color(0.00566115, 0.00566115, 0.00566115, 1)
 position = Vector2(944, 536)
 scale = Vector2(1.275, 1.22)
 texture = ExtResource("1_2b2xr")
 
-[node name="Newspaper" type="Sprite2D" parent="."]
+[node name="Newspaper" type="Sprite2D" parent="." unique_id=2021629055]
 position = Vector2(976, 712)
 rotation = -0.101317
 scale = Vector2(0.586659, 0.586659)
 texture = ExtResource("2_mai68")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1566425016]
 offset_left = 72.0
 offset_top = 64.0
 offset_right = 129.0
 offset_bottom = 97.0
-theme_override_styles/hover = SubResource("StyleBoxEmpty_yqy8o")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_bog7x")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1yfum")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bog7x")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yqy8o")
 
-[node name="Sprite2D" type="Sprite2D" parent="Button"]
+[node name="Sprite2D" type="Sprite2D" parent="Button" unique_id=680352985]
 texture = ExtResource("4_ilp1p")
 centered = false
 

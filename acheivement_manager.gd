@@ -1,6 +1,7 @@
 extends Node
 
 var config : ConfigFile = ConfigFile.new()
+@onready var ach_widget : PackedScene = preload("res://Prefabs/Achievements/achievement.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,15 +18,33 @@ func UpdateAchievement(ach_id : String) -> void:
 			
 			config.set_value(ach_id, "Conditions_Met", config.get_value(ach_id, "Conditions_Met") + 1)
 			
-			if (config.get_value(ach_id, "Total_Conditions")) >= (config.get_value(ach_id, "Conditions_Met")):
+			if (config.get_value(ach_id, "Conditions_Met")) >= (config.get_value(ach_id, "Total_Conditions")):
 				
 				#Trigger award of achievement
 				config.set_value(ach_id, "Awarded", true)
 				print("Achievement: ", ach_id, " has been awarded!")
+				AwardAchievement(ach_id)
 			
 			config.save("res://acheivements.cfg")
 		
 	
+
+func AwardAchievement(ach_id : String) -> void:
+	var new_ach = ach_widget.instantiate()
+	
+	if new_ach.get_child(2).get_child(0) is Label:
+		new_ach.get_child(2).get_child(0).text = config.get_value(ach_id, "Name")
+	if new_ach.get_child(2).get_child(1) is Label:
+		new_ach.get_child(2).get_child(1).text = config.get_value(ach_id, "Tagline")
+	if new_ach.get_child(3) is ColorRect:
+		new_ach.get_child(3).visible = false
+	
+	get_tree().current_scene.add_child(new_ach)
+	print("current_scene: ", get_tree().current_scene.name)
+	new_ach.position.x = get_viewport().get_visible_rect().end.x - 650
+	new_ach.position.y += 50
+	new_ach.popout()
+	print("POPOUT AWARD")
 
 
 func CreateFile() -> void:

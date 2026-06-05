@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cf7nbbjnp77j8"]
 
 [ext_resource type="Texture2D" uid="uid://dq78cfmi2htkd" path="res://Icon.PNG" id="1_ujgis"]
+[ext_resource type="Script" uid="uid://1udtso7vmjw7" path="res://Prefabs/Achievements/ach_popout_script.gd" id="1_xfvsf"]
 [ext_resource type="Theme" uid="uid://bug47d73a6l83" path="res://Scenes/MainMenu/Assets/Themes/MainMenu.tres" id="2_xfvsf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqnh3"]
@@ -28,6 +29,7 @@ offset_right = -1320.0
 offset_bottom = -930.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xfvsf")
 
 [node name="Background" type="Label" parent="." unique_id=1572403471]
 layout_mode = 1
@@ -73,3 +75,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.52156866)
+
+[node name="Timer" type="Timer" parent="." unique_id=273687337]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
