@@ -16,6 +16,12 @@ extends Control
 @export var achievementMenu : Control
 var paused : bool = false
 
+@export_group("Achievement elements")
+@export var vbox_one : VBoxContainer
+@export var vbox_two : VBoxContainer
+@export var achievements : PackedScene
+var alternate : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	MainManager.connect("shelves_stacked",Callable( self, "shelf"))
@@ -74,6 +80,40 @@ func lights():
 	Obj3.button_pressed = true
 	print("hello")
 
+func LoadAchievements() -> void:
+	var config : ConfigFile = ConfigFile.new()
+	
+	
+	var err = config.load("res://acheivements.cfg")
+	if err != OK:
+		return
+	
+	for i in config.get_sections():
+		var new_ach = achievements.instantiate()
+		if new_ach.get_child(2).get_child(0) is Label:
+			new_ach.get_child(2).get_child(0).text = config.get_value(i, "Name")
+		if new_ach.get_child(2).get_child(1) is Label:
+			new_ach.get_child(2).get_child(1).text = config.get_value(i, "Tagline")
+		if new_ach.get_child(3) is ColorRect:
+			new_ach.get_child(3).visible = !config.get_value(i, "Awarded")
+		
+		if alternate:
+			vbox_one.add_child(new_ach)
+			alternate = false
+			alternate = false
+		else:
+			vbox_two.add_child(new_ach)
+			alternate = true
+
+func UnloadAchievements() -> void:
+	if vbox_one.get_child_count() > 0:
+		for child in vbox_one.get_children():
+			child.queue_free()
+	
+	if vbox_two.get_child_count() > 0:
+		for child in vbox_two.get_children():
+			child.queue_free()
+
 
 func _on_button_pressed() -> void:
 	TogglePauseMenu()
@@ -84,6 +124,7 @@ func _on_button_2_pressed() -> void:
 	achievementMenu.visible = true
 	backButton.visible = true
 	pauseTitle.text = "ACHIEVEMENTS"
+	LoadAchievements()
 
 
 func _on_button_3_pressed() -> void:
@@ -99,7 +140,9 @@ func _on_button_4_pressed() -> void:
 
 func _on_back_button_pressed() -> void:
 	settingsMenu.visible = false
-	achievementMenu.visible = false
+	if achievementMenu.visible:
+		UnloadAchievements()
+		achievementMenu.visible = false
 	generalMenu.visible = true
 	backButton.visible = false
 	pauseTitle.text = "GAME PAUSED"

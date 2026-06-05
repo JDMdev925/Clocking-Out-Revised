@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cf7nbbjnp77j8"]
+
+[ext_resource type="Texture2D" uid="uid://dq78cfmi2htkd" path="res://Icon.PNG" id="1_ujgis"]
+[ext_resource type="Theme" uid="uid://bug47d73a6l83" path="res://Scenes/MainMenu/Assets/Themes/MainMenu.tres" id="2_xfvsf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqnh3"]
+bg_color = Color(0.2, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 10
+
+[sub_resource type="Theme" id="Theme_u0cxc"]
+Label/styles/normal = SubResource("StyleBoxFlat_gqnh3")
+
+[node name="Achievement" type="Control" unique_id=1736317991]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1320.0
+offset_bottom = -930.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Label" parent="." unique_id=1572403471]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_u0cxc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=624329692]
+position = Vector2(75.99999, 72.99999)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("1_ujgis")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=438369634]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 11.0
+offset_right = 595.0
+offset_bottom = 145.0
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1108822464]
+layout_mode = 2
+theme = ExtResource("2_xfvsf")
+theme_override_font_sizes/font_size = 28
+text = "Achievement name"
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1246755960]
+custom_minimum_size = Vector2(440, 75)
+layout_mode = 2
+theme = ExtResource("2_xfvsf")
+theme_override_font_sizes/font_size = 20
+text = "Do the thing inside the game to achieve this achievement. "
+autowrap_mode = 3
+
+[node name="GreyOut" type="ColorRect" parent="." unique_id=35973176]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.52156866)

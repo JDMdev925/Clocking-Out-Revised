@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d06dr6hcjx8tc" path="res://Scenes/ConvenienceStore/HUD_Script.gd" id="1_v3g5h"]
 [ext_resource type="Texture2D" uid="uid://d0wbip7das54e" path="res://Scenes/ConvenienceStore/Assets/Page 1.svg" id="2_edeoa"]
+[ext_resource type="PackedScene" uid="uid://cf7nbbjnp77j8" path="res://Prefabs/Achievements/achievement.tscn" id="2_ucr6g"]
 [ext_resource type="Texture2D" uid="uid://chouf5os05o7w" path="res://Scenes/ConvenienceStore/Assets/IMG_2875.PNG" id="3_ucr6g"]
 [ext_resource type="Texture2D" uid="uid://ymjri7523tvj" path="res://Scenes/ConvenienceStore/Assets/IMG_2890.PNG" id="4_r3lqp"]
 [ext_resource type="FontFile" uid="uid://caegfgiquyuqy" path="res://Scenes/MainMenu/Assets/Fonts/DotGothic16-Regular.ttf" id="5_qa8ho"]
@@ -13,7 +14,7 @@
 [sub_resource type="Theme" id="Theme_dhe60"]
 default_font = ExtResource("5_qa8ho")
 
-[node name="Control" type="Control" unique_id=1719185801 node_paths=PackedStringArray("key", "boxFull", "Title", "Obj1", "Obj2", "Obj3", "pauseMenu", "backButton", "pauseTitle", "generalMenu", "settingsMenu", "achievementMenu")]
+[node name="Control" type="Control" unique_id=1719185801 node_paths=PackedStringArray("key", "boxFull", "Title", "Obj1", "Obj2", "Obj3", "pauseMenu", "backButton", "pauseTitle", "generalMenu", "settingsMenu", "achievementMenu", "vbox_one", "vbox_two")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,6 +35,9 @@ pauseTitle = NodePath("Pause Menu/Label")
 generalMenu = NodePath("Pause Menu/General")
 settingsMenu = NodePath("Pause Menu/Settings")
 achievementMenu = NodePath("Pause Menu/Achievements")
+vbox_one = NodePath("Pause Menu/Achievements/HBoxContainer/VBoxContainer")
+vbox_two = NodePath("Pause Menu/Achievements/HBoxContainer/VBoxContainer2")
+achievements = ExtResource("2_ucr6g")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=546233368]
 
@@ -230,30 +234,10 @@ custom_minimum_size = Vector2(600, 700)
 layout_mode = 2
 theme_override_constants/separation = 35
 
-[node name="ColorRect" type="ColorRect" parent="Pause Menu/Achievements/HBoxContainer/VBoxContainer" unique_id=714231019]
-custom_minimum_size = Vector2(100.1, 150)
-layout_mode = 2
-color = Color(0.601223, 0.601223, 0.60122293, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Pause Menu/Achievements/HBoxContainer/VBoxContainer" unique_id=517210702]
-custom_minimum_size = Vector2(100.1, 150)
-layout_mode = 2
-color = Color(0.6, 0.6, 0.6, 1)
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="Pause Menu/Achievements/HBoxContainer" unique_id=1066571209]
 custom_minimum_size = Vector2(600, 700)
 layout_mode = 2
 theme_override_constants/separation = 35
-
-[node name="ColorRect" type="ColorRect" parent="Pause Menu/Achievements/HBoxContainer/VBoxContainer2" unique_id=1312243435]
-custom_minimum_size = Vector2(100.1, 150)
-layout_mode = 2
-color = Color(0.6, 0.6, 0.6, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Pause Menu/Achievements/HBoxContainer/VBoxContainer2" unique_id=1869433043]
-custom_minimum_size = Vector2(100.1, 150)
-layout_mode = 2
-color = Color(0.6, 0.6, 0.6, 1)
 
 [node name="Back Button" type="Button" parent="Pause Menu" unique_id=1910971769]
 layout_mode = 0
