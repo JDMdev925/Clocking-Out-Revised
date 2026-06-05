@@ -42,4 +42,5 @@ mesh = SubResource("BoxMesh_my4c2")
 
 [node name="Sprite3D" type="Sprite3D" parent="StaticBody3D/Shop Gate" unique_id=347992074]
 transform = Transform3D(-0.04042743, 2.8226367e-22, -1.3323386, 1.9770767e-11, 0.056635946, -5.999085e-13, 0.0392975, -4.5769356e-12, -0.0011924123, -0.76980853, 0.2123888, -0.026833892)
+shaded = true
 texture = ExtResource("3_cu7w0")

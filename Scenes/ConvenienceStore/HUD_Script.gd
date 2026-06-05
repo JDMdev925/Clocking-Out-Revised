@@ -100,7 +100,6 @@ func LoadAchievements() -> void:
 		if alternate:
 			vbox_one.add_child(new_ach)
 			alternate = false
-			alternate = false
 		else:
 			vbox_two.add_child(new_ach)
 			alternate = true

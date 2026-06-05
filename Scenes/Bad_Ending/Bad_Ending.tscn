@@ -1,19 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnett57re1kn6"]
+[gd_scene format=3 uid="uid://dnett57re1kn6"]
 
-[ext_resource type="Script" path="res://Scenes/Bad_Ending/bad_ending.gd" id="1_2u8l6"]
+[ext_resource type="Script" uid="uid://2owljw7i5oup" path="res://Scenes/Bad_Ending/bad_ending.gd" id="1_2u8l6"]
 [ext_resource type="Texture2D" uid="uid://d26wxcs1s4bj3" path="res://Scenes/SlidingPuzzle/Assets/SpareBackground.jpg" id="2_nnfef"]
 
-[node name="BadEnding" type="Node2D"]
+[node name="BadEnding" type="Node2D" unique_id=1760873476]
 script = ExtResource("1_2u8l6")
 
-[node name="SpareBackground" type="Sprite2D" parent="."]
+[node name="SpareBackground" type="Sprite2D" parent="." unique_id=238363231]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(1032, 480)
 scale = Vector2(1.37292, 1.454)
 texture = ExtResource("2_nnfef")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=701258756]
 wait_time = 3.0
 autostart = true
 
+[node name="Timer2" type="Timer" parent="." unique_id=734833458]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

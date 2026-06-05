@@ -22,7 +22,6 @@ func _on_timer_timeout() -> void:
 		start = false
 		waitTimer.stop()
 		SceneSwitcher.switch_scene(SceneSwitcher.SceneType.BAD_END)
-		AcheivementManager.UpdateAchievement("ACH_2")
 	else:
 		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.SHOVEL_HIT)
 		beenHit = true

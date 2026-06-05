@@ -9,10 +9,10 @@ func _ready() -> void:
 	MainManager.MovementLocked = false
 	camera = $Pivot
 	
-	#if(MainManager.playerPos != null and !MainManager.firstload):
-		#global_position = MainManager.playerPos
-	#else:
-		#MainManager.firstload = false
+	if(MainManager.playerPos != null and !MainManager.firstload):
+		global_position = MainManager.playerPos
+	else:
+		MainManager.firstload = false
 	
 
 func _physics_process(delta: float) -> void:
@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	if (!MainManager.MovementLocked):
 		if direction != Vector3() and !animator.is_playing():
 			animator.play("head_bob")
-			MainManager.playerPos = global_position 
+			MainManager.playerPos = global_position
 			call_deferred("play_audio")
 		move_and_slide()
 	

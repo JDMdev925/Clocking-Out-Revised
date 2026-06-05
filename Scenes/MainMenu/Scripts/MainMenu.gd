@@ -5,6 +5,7 @@ extends Control
 
 func _on_play_pressed():
 	print("Play Pressed :)")
+	MainManager.playerPos = Vector3(-5.76, 0.861, 21.71)
 	SceneSwitcher.switch_scene(SceneSwitcher.SceneType.STORE)
 	play_audio()
 

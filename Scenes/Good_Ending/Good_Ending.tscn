@@ -39,4 +39,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_yqy8o")
 texture = ExtResource("4_ilp1p")
 centered = false
 
+[node name="Timer" type="Timer" parent="." unique_id=414889141]
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

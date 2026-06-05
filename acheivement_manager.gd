@@ -10,6 +10,8 @@ func _ready() -> void:
 	
 	if err != OK:
 		CreateFile()
+	else:
+		ResetAchievements()
 
 func UpdateAchievement(ach_id : String) -> void:
 	if config.has_section(ach_id):
@@ -40,12 +42,17 @@ func AwardAchievement(ach_id : String) -> void:
 		new_ach.get_child(3).visible = false
 	
 	get_tree().current_scene.add_child(new_ach)
-	print("current_scene: ", get_tree().current_scene.name)
-	new_ach.position.x = get_viewport().get_visible_rect().end.x - 650
-	new_ach.position.y += 50
+	print("Current scene: ", get_tree().current_scene.name)
+	new_ach.position.x = get_viewport().get_visible_rect().end.x
+	new_ach.position.x -= 650
+	new_ach.position.y = 50
 	new_ach.popout()
-	print("POPOUT AWARD")
 
+func ResetAchievements() -> void:
+	
+	for i in config.get_sections():
+		if !config.get_value(i, "Awarded") && config.get_value(i, "Conditions_Met") > 0:
+			config.set_value(i, "Conditions_Met", 0)
 
 func CreateFile() -> void:
 	# Achievement 1
